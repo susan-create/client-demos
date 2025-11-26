@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chaim's Deli Place - Authentic Deli Flavors, Timeless Traditions. Serving classic sandwiches, hearty breakfasts, and homemade pickles since 1978 in Anytown.">
+    <meta name="keywords" content="Chaim's Deli, deli, restaurant, Anytown, pastrami, sandwiches, breakfast, lunch, dinner, catering, homemade pickles, classic deli">
+    <meta name="author" content="Chaim's Deli Place">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.chaimsdeli.com/"> <!-- Replace with actual URL -->
+    <meta property="og:title" content="Chaim's Deli Place - Authentic Flavors, Timeless Traditions">
+    <meta property="og:description" content="Chaim's Deli Place - Authentic Deli Flavors, Timeless Traditions. Serving classic sandwiches, hearty breakfasts, and homemade pickles since 1978 in Anytown.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1579705799978-295f7ef57d97?w=800&q=80"> <!-- Replace with a good hero image -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.chaimsdeli.com/"> <!-- Replace with actual URL -->
+    <meta property="twitter:title" content="Chaim's Deli Place - Authentic Flavors, Timeless Traditions">
+    <meta property="twitter:description" content="Chaim's Deli Place - Authentic Deli Flavors, Timeless Traditions. Serving classic sandwiches, hearty breakfasts, and homemade pickles since 1978 in Anytown.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1579705799978-295f7ef57d97?w=800&q=80"> <!-- Replace with a good hero image -->
+
+    <title>Chaim's Deli Place | Authentic Flavors, Timeless Traditions</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Merriweather+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-primary: hsl(30, 40%, 30%); /* Dark brown */
+            --color-secondary: hsl(45, 70%, 55%); /* Mustard yellow */
+            --color-accent: hsl(90, 20%, 40%); /* Olive green */
+            --color-background: hsl(40, 30%, 95%); /* Cream */
+            --color-text: hsl(30, 20%, 15%); /* Darker brown */
+            --color-light-text: hsl(40, 30%, 90%); /* Light cream text for dark backgrounds */
+
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Merriweather Sans', sans-serif;
+        }
+
+        /* Basic Reset & Box Sizing */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            line-height: 1.6;
+            background-color: var(--color-background);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--color-primary);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            margin-bottom: 0.8em;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3em; }
+        h2 { font-size: 2.5em; }
+        h3 { font-size: 1.8em; }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.8em;
+            color: var(--color-primary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--color-secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+            border: 2px solid var(--color-secondary);
+        }
+
+        .btn-primary:hover {
+            background-color: darken(var(--color-secondary), 10%);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-light-text);
+            border: 2px solid var(--color-light-text);
+        }
+        .btn-secondary:hover {
+            background-color: var(--color-light-text);
+            color: var(--color-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Header & Navigation */
+        .header {
+            background-color: var(--color-primary);
+            color: var(--color-light-text);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--color-light-text);
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--color-secondary);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--color-light-text);
+            font-weight: 400;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-secondary);
+            border-bottom-color: var(--color-secondary);
+        }
+
+        .nav-cta {
+            margin-left: 30px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--color-light-text);
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh; /* Adjust as needed */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-light-text);
+            overflow: hidden;
+            margin-top: 80px; /* To account for fixed header */
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1579705799978-295f7ef57d97?w=1600&q=80') no-repeat center center/cover;
+            filter: brightness(0.7);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 4.5em;
+            margin-bottom: 20px;
+            color: var(--color-light-text);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            color: var(--color-light-text);
+            font-family: var(--font-heading);
+            font-weight: 400;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--color-background);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .about-image img {
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 2;
+            padding-right: 20px;
+        }
+
+        .about-text h3 {
+            color: var(--color-secondary);
+            font-family: var(--font-body);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--color-text);
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 80px 0;
+            background-color: var(--color-light-text);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .menu-item {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--color-background);
+        }
+
+        .menu-item-content {
+            padding: 25px;
+        }
+
+        .menu-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: var(--color-primary);
+        }
+
+        .menu-item p {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .menu-item .price {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--color-secondary);
+        }
+
+        /* Signature Dish Section */
+        .signature-dish {
+            padding: 80px 0;
+            background-color: var(--color-primary);
+            color: var(--color-light-text);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .signature-dish::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1627916946021-396a1a1f1e73?w=1600&q=80') no-repeat center center/cover;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .signature-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .signature-dish h2 {
+            color: var(--color-secondary);
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .signature-dish p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: var(--color-light-text);
+        }
+
+        .signature-dish .btn-secondary {
+            border-color: var(--color-secondary);
+            color: var(--color-secondary);
+        }
+        .signature-dish .btn-secondary:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+        }
+
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--color-background);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .testimonial-card .author {
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--color-light-text);
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+
+        .contact-item h3 {
+            font-size: 1.5em;
+            color: var(--color-secondary);
+            margin-bottom: 10px;
+        }
+
+        .contact-item p {
+            margin-bottom: 5px;
+        }
+
+        .contact-item a {
+            color: var(--color-text);
+            transition: color 0.3s ease;
+        }
+        .contact-item a:hover {
+            color: var(--color-secondary);
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 5px;
+            margin-top: 15px;
+            text-align: left;
+            max-width: 250px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hours-grid div {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted rgba(0,0,0,0.1);
+            padding-bottom: 3px;
+        }
+        .hours-grid div:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .hours-grid span:first-child {
+            font-weight: 700;
+        }
+
+        .map-frame {
+            margin-top: 40px;
+            width: 100%;
+            height: 400px;
+            border: 0;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-primary);
+            color: var(--color-light-text);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer .logo {
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer-links a {
+            color: var(--color-light-text);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-secondary);
+        }
+
+        .footer-contact p {
+            margin-bottom: 5px;
+        }
+        .footer-contact a {
+            color: var(--color-light-text);
+            transition: color 0.3s ease;
+        }
+        .footer-contact a:hover {
+            color: var(--color-secondary);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 { font-size: 3.5em; }
+            h2 { font-size: 2em; }
+            h3 { font-size: 1.5em; }
+            .section-title { font-size: 2.2em; }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px; /* Below header */
+                left: 0;
+                width: 100%;
+                background-color: var(--color-primary);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+                padding: 20px 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+                text-align: center;
+            }
+
+            .nav-cta {
+                margin-top: 20px;
+                margin-left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero {
+                height: 70vh;
+            }
+            .hero h1 {
+                font-size: 3em;
+            }
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-text {
+                padding-right: 0;
+            }
+            .about-image {
+                margin-bottom: 30px;
+            }
+
+            .signature-dish h2 {
+                font-size: 2.8em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 1.8em; }
+            .section-title { font-size: 1.8em; }
+
+            .hero {
+                margin-top: 60px; /* Adjust for smaller header */
+                height: 60vh;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+
+            .header {
+                padding: 10px 0;
+            }
+            .logo {
+                font-size: 1.8em;
+            }
+            .nav-links {
+                top: 60px; /* Adjust for smaller header */
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.9em;
+            }
+
+            .about, .menu, .signature-dish, .testimonials, .contact {
+                padding: 60px 0;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .contact-item {
+                min-width: unset;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.6em; }
+            .section-title { font-size: 1.6em; }
+
+            .hero {
+                height: 50vh;
+            }
+            .hero h1 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 0.9em;
+            }
+
+            .menu-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .footer-links li {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">Chaim's Deli Place</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#signature">Signature Dish</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="nav-cta"><a href="tel:+15553456789" class="btn btn-primary">Order Now</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-background"></div>
+            <div class="hero-content fade-in">
+                <h1>Chaim's Deli Place</h1>
+                <p>Authentic Flavors, Timeless Traditions.</p>
+                <a href="#menu" class="btn btn-primary">View Our Menu</a>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container fade-in">
+                <h2 class="section-title">Our Story</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1549488344-934d4a96e545?w=800&q=80" alt="Chef preparing food at Chaim's Deli">
+                    </div>
+                    <div class="about-text">
+                        <h3>Serving Anytown Since 1978</h3>
+                        <p>At Chaim's Deli Place, every dish tells a story. We pride ourselves on upholding a legacy of flavor, passed down through generations. Since 1978, we've been a beloved local staple, committed to bringing you the true taste of classic deli cuisine.</p>
+                        <p>What makes us special? It's our dedication to tradition: hand-sliced, premium meats, homemade pickles fermented to perfection, and cherished family recipes that deliver an unforgettable experience with every bite. We believe in quality, warmth, and the simple joy of a truly great meal.</p>
+                        <p>Our ideal customers are generations of families, food enthusiasts seeking authentic deli experiences, and professionals craving a comforting, high-quality meal. Come join us and become a part of our continuing story.</p>
+                        <a href="#contact" class="btn btn-primary">Visit Us Today</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="menu">
+            <div class="container fade-in">
+                <h2 class="section-title">Our Menu Highlights</h2>
+                <p class="text-center" style="margin-bottom: 40px;">From hearty breakfasts to classic deli sandwiches, we've got something for everyone.</p>
+
+                <div class="menu-grid">
+                    <div class="menu-item fade-in">
+                        <img src="https://images.unsplash.com/photo-1558961363-fa4fdf88cd23?w=800&q=80" alt="Classic Deli Sandwiches">
+                        <div class="menu-item-content">
+                            <h3>Classic Deli Sandwiches</h3>
+                            <p>Piled high with our hand-sliced meats, fresh bread, and crisp fixings. The cornerstone of any great deli!</p>
+                            <span class="price">From $12.99</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item fade-in">
+                        <img src="https://images.unsplash.com/photo-1628198308722-e25c04b50c38?w=800&q=80" alt="Signature Soups & Salads">
+                        <div class="menu-item-content">
+                            <h3>Signature Soups & Salads</h3>
+                            <p>Warm, comforting soups made fresh daily and crisp, vibrant salads with homemade dressings.</p>
+                            <span class="price">From $8.50</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item fade-in">
+                        <img src="https://images.unsplash.com/photo-1557007720-3023e93a6167?w=800&q=80" alt="Hearty Breakfasts">
+                        <div class="menu-item-content">
+                            <h3>Hearty Breakfasts</h3>
+                            <p>Start your day right with our traditional breakfast plates, bagels, and fresh-brewed coffee.</p>
+                            <span class="price">From $9.75</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item fade-in">
+                        <img src="https://images.unsplash.com/photo-1563805042-76867776ad8d?w=800&q=80" alt="Fresh Baked Goods & Desserts">
+                        <div class="menu-item-content">
+                            <h3>Baked Goods & Desserts</h3>
+                            <p>Indulge in our selection of freshly baked pastries, cakes, and traditional deli desserts.</p>
+                            <span class="price">From $4.99</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center" style="margin-top: 50px;">
+                    <a href="mailto:susan@scbdata.com" class="btn btn-primary">Enquire About Catering</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="signature" class="signature-dish">
+            <div class="signature-content fade-in">
+                <h2>Our Legendary Signature Offering</h2>
+                <p>Prepare your taste buds for an unforgettable experience with our famous <strong>Chaim's Classic Pastrami</strong>. Piled high on perfectly toasted fresh rye bread, with just the right amount of mustard, and served with a generous side of our legendary homemade pickles. It's not just a sandwich; it's a testament to deli perfection, crafted with passion and decades of tradition.</p>
+                <a href="#menu" class="btn btn-secondary">See More on Our Menu</a>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <div class="container fade-in">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card fade-in">
+                        <p>"Chaim's Deli is truly a gem! The pastrami sandwich is out of this world, and the pickles taste just like my grandmother used to make. A true taste of home!"</p>
+                        <p class="author">- Sarah L.</p>
+                    </div>
+                    <div class="testimonial-card fade-in">
+                        <p>"Every time I visit, I'm greeted with a warm smile and incredible food. The quality of the ingredients is evident, and you can feel the love put into every dish."</p>
+                        <p class="author">- Michael P.</p>
+                    </div>
+                    <div class="testimonial-card fade-in">
+                        <p>"The best deli in Anytown, hands down! Their breakfast is a weekend ritual for our family, and their catering made our last event a huge success."</p>
+                        <p class="author">- Jessica R.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container fade-in">
+                <h2 class="section-title">Visit & Contact Us</h2>
+                <div class="contact-info">
+                    <div class="contact-item fade-in">
+                        <h3>Location</h3>
+                        <p>Chaim's Deli Place</p>
+                        <p>456 Oak Avenue, Anytown, CA 90210</p>
+                        <p><a href="https://maps.app.goo.gl/YOUR_GOOGLE_MAPS_LINK" target="_blank" rel="noopener noreferrer">Get Directions</a></p>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <h3>Hours</h3>
+                        <div class="hours-grid">
+                            <div><span>Monday - Saturday:</span> <span>7 AM - 8 PM</span></div>
+                            <div><span>Sunday:</span> <span>8 AM - 3 PM</span></div>
+                        </div>
+                        <p style="margin-top: 15px;">We look forward to welcoming you!</p>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <h3>Get in Touch</h3>
+                        <p>Phone: <a href="tel:+15553456789">(555) 345-6789</a></p>
+                        <p>Email: <a href="mailto:susan@scbdata.com">susan@scbdata.com</a></p>
+                        <p style="margin-top: 15px;">Have questions? Feel free to call or email us.</p>
+                    </div>
+                </div>
+                <iframe
+                    class="map-frame fade-in"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.2547700547077!2d-122.4194156846811!3d37.7749297797593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064d1f5d6f3%3A0x948e9c4b7b25e7d!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1678901234567!5m2!1sen!2sus"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <a href="#" class="logo">Chaim's Deli Place</a>
+            <ul class="footer-links">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#signature">Signature Dish</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="footer-contact">
+                <p>456 Oak Avenue, Anytown, CA 90210</p>
+                <p>Phone: <a href="tel:+15553456789">(555) 345-6789</a></p>
+                <p>Email: <a href="mailto:susan@scbdata.com">susan@scbdata.com</a></p>
+            </div>
+            <p style="margin-top: 20px;">&copy; 2023 Chaim's Deli Place. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hamburger menu functionality
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('open'); // Optional: for burger animation
+            });
+
+            // Close nav when a link is clicked (for mobile)
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        hamburger.classList.remove('open');
+                    }
+                });
+            });
+
+            // Sticky header background change on scroll
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 0) {
+                    header.style.backgroundColor = 'rgba(46, 33, 22, 0.95)'; /* Slightly transparent dark brown */
+                } else {
+                    header.style.backgroundColor = 'var(--color-primary)';
+                }
+            });
+
+            // Fade-in on scroll animation
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = {
+                threshold: 0.3,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('appear');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
+</body>
+</html>
