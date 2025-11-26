@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chaim's Pizza Shop - Crafting Perfection, Slice by Slice. Enjoy authentic, high-quality pizza made with fresh ingredients.">
+    <meta name="keywords" content="pizza, pizza shop, chaim's pizza, restaurant, Italian food, fresh pizza, gourmet pizza, order pizza">
+    <meta name="author" content="Chaim's Pizza Shop">
+    <title>Chaim's Pizza Shop - Crafting Perfection, Slice by Slice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #CD5C5C; /* Indian Red */
+            --secondary-green: #6B8E23; /* Olive Drab */
+            --cream-bg: #F5F5DC; /* Beige */
+            --dark-text: #333333;
+            --light-text: #ffffff;
+            --accent-gold: #FFD700;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--cream-bg);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lora', serif;
+            color: var(--primary-red);
+            margin-bottom: 0.8em;
+        }
+
+        h1 { font-size: 3.5em; }
+        h2 { font-size: 2.5em; }
+        h3 { font-size: 1.8em; }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-red);
+            transition: color var(--transition-speed) ease;
+        }
+
+        a:hover {
+            color: var(--secondary-green);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background-color: var(--dark-text);
+            color: var(--light-text);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: background-color var(--transition-speed) ease;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Lora', serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--light-text);
+            transition: color var(--transition-speed) ease;
+        }
+
+        .logo:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-menu ul li {
+            margin-left: 30px;
+        }
+
+        .nav-menu ul li a {
+            color: var(--light-text);
+            font-weight: 600;
+            padding: 5px 0;
+            position: relative;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .nav-menu ul li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-red);
+            transition: width var(--transition-speed) ease;
+        }
+
+        .nav-menu ul li a:hover {
+            color: var(--primary-red);
+        }
+
+        .nav-menu ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            height: 3px;
+            width: 25px;
+            background-color: var(--light-text);
+            margin-bottom: 5px;
+            border-radius: 2px;
+            transition: all var(--transition-speed) ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?w=1600&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+            padding-top: 80px; /* Adjust for fixed header */
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            color: var(--accent-gold);
+            font-size: 4.5em;
+            margin-bottom: 0.2em;
+            animation: fadeInDown 1s ease-out forwards;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 1.5em;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-red);
+            color: var(--light-text);
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+            animation: scaleIn 1s ease-out forwards;
+            animation-delay: 0.6s;
+            opacity: 0;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-green);
+            transform: translateY(-3px);
+        }
+
+        /* Sections General */
+        section {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--cream-bg);
+        }
+
+        section:nth-of-type(even) {
+            background-color: #fcfaf3; /* Slightly different cream for contrast */
+        }
+
+        section h2 {
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-red);
+            border-radius: 2px;
+        }
+
+        .section-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            text-align: left;
+            margin-top: 40px;
+        }
+
+        .section-content.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .section-text {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .section-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .section-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform var(--transition-speed) ease;
+        }
+
+        .section-image img:hover {
+            transform: scale(1.02);
+        }
+
+        /* About Section Specific */
+        #about p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 1em;
+        }
+
+        /* Menu Section */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .menu-item {
+            background-color: var(--light-text);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            text-align: left;
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        .menu-item-details {
+            padding: 20px;
+        }
+
+        .menu-item-details h3 {
+            margin-top: 0;
+            color: var(--dark-text);
+        }
+
+        .menu-item-details .price {
+            color: var(--secondary-green);
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .menu-item-details p {
+            font-size: 0.95em;
+            color: #666;
+        }
+        
+        /* Specials Section */
+        #specials .section-content {
+            flex-direction: column;
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: var(--light-text);
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            padding: 40px;
+            text-align: center;
+        }
+
+        #specials .section-text {
+            padding: 0;
+        }
+
+        #specials .section-image {
+            width: 100%;
+            max-width: 500px; /* Constrain image size */
+            margin-bottom: 20px;
+        }
+
+        #specials .section-image img {
+            height: auto;
+        }
+        
+        #specials h3 {
+            color: var(--primary-red);
+            font-size: 2em;
+        }
+
+        #specials p {
+            font-size: 1.1em;
+            color: var(--dark-text);
+            margin-bottom: 20px;
+        }
+
+        /* Contact Section */
+        #contact .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            background-color: var(--light-text);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            transition: transform var(--transition-speed) ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item h3 {
+            color: var(--secondary-green);
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        .contact-item p {
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .contact-item a {
+            color: var(--dark-text);
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-red);
+        }
+
+        .business-hours {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px dashed #ddd;
+        }
+
+        .business-hours h3 {
+            color: var(--primary-red);
+            margin-bottom: 15px;
+        }
+
+        .hours-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            border-bottom: 1px dotted #eee;
+        }
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-text);
+            color: var(--light-text);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: var(--accent-gold);
+        }
+
+        .footer a:hover {
+            color: var(--primary-red);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-menu ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: var(--dark-text);
+                position: absolute;
+                top: 70px; /* Height of header */
+                left: 0;
+                padding: 20px 0;
+            }
+
+            .nav-menu ul.active {
+                display: flex;
+            }
+
+            .nav-menu ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .nav-menu ul li a {
+                font-size: 1.1em;
+                padding: 10px 0;
+                display: block;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .section-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section-content.reverse {
+                flex-direction: column; /* Consistent stacking */
+            }
+
+            .section-text, .section-image {
+                flex: none;
+                width: 100%;
+                padding: 0;
+            }
+
+            .section-image {
+                order: -1; /* Image always on top for mobile */
+                margin-bottom: 30px;
+            }
+
+            .hero h1 {
+                font-size: 3em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-item {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 { font-size: 2.8em; }
+            h2 { font-size: 2em; }
+            h3 { font-size: 1.5em; }
+
+            .hero h1 {
+                font-size: 2.8em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .btn {
+                padding: 12px 25px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .footer {
+                padding: 30px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-content">
+            <a href="#" class="logo">Chaim's Pizza Shop</a>
+            <nav class="nav-menu">
+                <ul id="main-nav">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#specials">Signature</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Crafting Perfection, Slice by Slice</h1>
+                <p>Experience the rich flavors of traditional pizza, made with passion and the freshest ingredients.</p>
+                <a href="#menu" class="btn">View Our Menu</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>Our Story</h2>
+                <div class="section-content">
+                    <div class="section-text">
+                        <p>At Chaim's Pizza Shop, we believe in the art of pizza making. Established in 2008, our journey began with a simple passion: to bring authentic, high-quality pizza to our community. We meticulously select the freshest local ingredients, from sun-ripened tomatoes to premium mozzarella, ensuring every bite is a delightful experience.</p>
+                        <p>What makes us special? It's our unwavering commitment to traditional recipes, combined with a creative flair that keeps our menu exciting. Our dough is hand-kneaded daily, slow-fermented for a perfect crust, and baked to perfection in our stone ovens. We cater to families, food enthusiasts, and anyone who appreciates a truly great slice.</p>
+                        <p>Come and taste the difference that dedication and genuine love for pizza can make. We're more than just a pizza shop; we're a place where delicious memories are made.</p>
+                    </div>
+                    <div class="section-image">
+                        <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=800&q=80" alt="Chef preparing pizza dough">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu">
+            <div class="container">
+                <h2>Our Delicious Menu</h2>
+                <p>Explore a tantalizing array of pizzas and more, crafted with the finest ingredients.</p>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1513104883172-46681edefc00?w=800&q=80" alt="Classic Margherita Pizza">
+                        <div class="menu-item-details">
+                            <h3>Classic Margherita</h3>
+                            <p>Our traditional Margherita, with fresh mozzarella, ripe tomatoes, basil, and a drizzle of olive oil.</p>
+                            <span class="price">$15.99</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a04225?w=800&q=80" alt="Spicy Pepperoni Pizza">
+                        <div class="menu-item-details">
+                            <h3>Spicy Pepperoni</h3>
+                            <p>A timeless favorite! Zesty pepperoni, rich tomato sauce, and melted mozzarella on our signature crust.</p>
+                            <span class="price">$17.49</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1628882062140-c3d64115e347?w=800&q=80" alt="Vegetarian Deluxe Pizza">
+                        <div class="menu-item-details">
+                            <h3>Vegetarian Deluxe</h3>
+                            <p>A garden fresh delight with bell peppers, onions, mushrooms, olives, and spinach.</p>
+                            <span class="price">$16.99</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1590947132314-d6210de08f5d?w=800&q=80" alt="Meat Lover's Pizza">
+                        <div class="menu-item-details">
+                            <h3>Meat Lover's Feast</h3>
+                            <p>Stacked with pepperoni, sausage, ham, and bacon, perfect for the carnivorous connoisseur.</p>
+                            <span class="price">$19.99</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="specials">
+            <div class="container">
+                <h2>Chaim's Signature Offering</h2>
+                <div class="section-content">
+                    <div class="section-image">
+                        <img src="https://images.unsplash.com/photo-1594007659533-3d7ad66d4001?w=800&q=80" alt="Gourmet Chaim's Special Pizza">
+                    </div>
+                    <div class="section-text">
+                        <h3>The Chaim's Royale</h3>
+                        <p>Discover our culinary masterpiece, The Chaim's Royale. This exquisite pizza features a delicate truffle cream base, topped with succulent prosciutto, wild arugula, fresh burrata cheese, and a finishing drizzle of fig glaze. It's a symphony of flavors designed to elevate your pizza experience.</p>
+                        <p>Created by Chaim himself, this signature dish embodies our commitment to innovation while honoring classic techniques. A true gourmet delight for those seeking something extraordinary.</p>
+                        <a href="#contact" class="btn">Order Your Royale</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <p>We'd love to hear from you! Reach out for orders, inquiries, or just to say hello.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Location</h3>
+                        <p>123 Pizza Lane</p>
+                        <p>Foodie Town, ST 12345</p>
+                        <a href="https://maps.google.com/?q=123+Pizza+Lane+Foodie+Town+ST+12345" target="_blank">Get Directions</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Contact Us</h3>
+                        <p>Phone: <a href="tel:+11234567890">(123) 456-7890</a></p>
+                        <p>Email: <a href="mailto:susan@scbdata.com">susan@scbdata.com</a></p>
+                    </div>
+                </div>
+                <div class="business-hours">
+                    <h3>Business Hours</h3>
+                    <ul class="hours-list">
+                        <li><span>Monday - Thursday:</span> <span>11:00 AM - 10:00 PM</span></li>
+                        <li><span>Friday - Saturday:</span> <span>11:00 AM - 11:00 PM</span></li>
+                        <li><span>Sunday:</span> <span>12:00 PM - 09:00 PM</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Chaim's Pizza Shop. All rights reserved.</p>
+            <p>123 Pizza Lane, Foodie Town, ST 12345 | Phone: (123) 456-7890 | Email: <a href="mailto:susan@scbdata.com">susan@scbdata.com</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mainNav = document.getElementById('main-nav');
+            const navLinks = mainNav.querySelectorAll('a');
+
+            mobileMenu.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                mobileMenu.classList.toggle('open'); // Optional: for burger icon animation
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mainNav.classList.remove('active');
+                    mobileMenu.classList.remove('open');
+                });
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Optional: Header background change on scroll
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.header');
+                if (window.scrollY > 50) {
+                    header.style.backgroundColor = 'rgba(51, 51, 51, 0.95)'; // Slightly transparent dark
+                } else {
+                    header.style.backgroundColor = 'var(--dark-text)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
