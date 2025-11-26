@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Flower Boutique - Where Petals Meet Perfection. Exquisite floral arrangements for all occasions, handcrafted with passion and elegance.">
+    <meta name="keywords" content="flower boutique, floral arrangements, wedding flowers, event decor, custom bouquets, Cityville florist, luxury flowers, bespoke florals, flower delivery">
+    <meta name="author" content="The Flower Boutique">
+    <title>The Flower Boutique | Exquisite Floral Arrangements & Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #A3C9A8; /* Sage Green - Muted and elegant */
+            --secondary-color: #F8EDEB; /* Blush Pink - Soft and feminine */
+            --accent-color: #DDA15E; /* Muted Gold/Terracotta - Warm accent */
+            --text-color: #333333; /* Dark Grey for readability */
+            --light-text-color: #666666;
+            --background-light: #FFFFFF;
+            --background-dark: #F5F5F5;
+            --header-height: 80px;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --max-width: 1200px;
+
+            /* RGB values for transparent overlays */
+            --primary-color-rgb: 163, 201, 168;
+            --accent-color-rgb: 221, 161, 94;
+        }
+
+        /* Basic Reset & Box Sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--background-light);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+            margin-bottom: 0.8em;
+            color: var(--text-color);
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3.5em; }
+        h2 { font-size: 2.5em; }
+        h3 { font-size: 1.8em; }
+        h4 { font-size: 1.4em; }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--background-light);
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: var(--background-light);
+        }
+
+        /* Header & Navigation */
+        .header {
+            background-color: var(--background-light);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .header.sticky {
+            padding: 10px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 1.1em;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+        }
+
+        .hamburger .bar {
+            width: 100%;
+            height: 3px;
+            background-color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--background-light);
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1544837330-d3a985f9175d?w=1600&q=80') no-repeat center center/cover;
+            padding-top: var(--header-height); /* Offset for fixed header */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4.5em;
+            margin-bottom: 0.3em;
+            color: var(--background-light);
+            line-height: 1.1;
+            animation: slideInUp 1s ease-out 0.3s backwards;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 2em;
+            color: rgba(255, 255, 255, 0.9);
+            animation: fadeIn 1s ease-out 0.6s backwards;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: var(--background-dark);
+            text-align: center;
+            overflow: hidden; /* For animations */
+        }
+
+        .about-section h2 {
+            margin-bottom: 1em;
+            color: var(--primary-color);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            text-align: left;
+        }
+
+        .about-text {
+            animation: fadeInRight 1s ease-out;
+        }
+
+        .about-image {
+            position: relative;
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .about-image img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Services Section */
+        .services-section {
+            background-color: var(--background-light);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .services-section h2 {
+            margin-bottom: 1.5em;
+            color: var(--primary-color);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--background-dark);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0; /* Start hidden for animation */
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            font-size: 0.95em;
+            color: var(--light-text-color);
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .service-card ul li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            color: var(--text-color);
+        }
+
+        .service-card ul li::before {
+            content: '✓';
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* Signature Offering */
+        .signature-offering {
+            margin-top: 60px;
+            background-color: var(--secondary-color);
+            padding: 40px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            animation: scaleIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .signature-offering h3 {
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .signature-offering p {
+            max-width: 700px;
+            margin-bottom: 25px;
+            color: var(--light-text-color);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background-color: var(--background-dark);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .gallery-section h2 {
+            margin-bottom: 1.5em;
+            color: var(--primary-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0; /* Start hidden for animation */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(var(--accent-color-rgb), 0.7); /* Using RGB for transparency */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            color: var(--background-light);
+            font-family: var(--font-serif);
+            font-size: 1.5em;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay span {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Call to Action Section */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: var(--background-light);
+            text-align: center;
+            padding: 100px 20px;
+            overflow: hidden;
+        }
+
+        .cta-section h2 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            color: var(--background-light);
+            animation: slideInUp 1s ease-out;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            animation: fadeIn 1s ease-out 0.3s backwards;
+        }
+
+        .cta-section .btn {
+            background-color: var(--accent-color);
+            color: var(--background-light);
+            animation: pulse 1.5s infinite ease-in-out, fadeIn 1s ease-out 0.6s backwards;
+        }
+
+        .cta-section .btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--background-light);
+            overflow: hidden;
+        }
+
+        .contact-section h2 {
+            text-align: center;
+            margin-bottom: 1.5em;
+            color: var(--primary-color);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        .contact-info {
+            background-color: var(--background-dark);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        .contact-info h3 {
+            color: var(--accent-color);
+            margin-bottom: 25px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info p strong {
+            min-width: 90px;
+            display: inline-block;
+            color: var(--text-color);
+        }
+
+        .contact-info a {
+            color: var(--text-color);
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-color);
+        }
+        
+        .business-hours {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        .business-hours h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .business-hours ul {
+            list-style: none;
+            padding: 0;
+        }
+        .business-hours ul li {
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            color: var(--light-text-color);
+        }
+
+        .contact-form-wrapper {
+            animation: fadeInRight 1s ease-out;
+            background-color: var(--background-light);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .contact-form h3 {
+            color: var(--accent-color);
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: var(--font-sans);
+            font-size: 1em;
+            color: var(--text-color);
+            background-color: var(--background-dark);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--text-color);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 60px 0 30px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .footer .logo {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links li {
+            margin: 0 15px 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-contact-info p {
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-contact-info a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-contact-info a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer .copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5em;
+            }
+            .hero p {
+                font-size: 1.3em;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .about-text, .about-image {
+                animation: none; /* Disable complex animations on smaller screens for performance */
+            }
+            .about-image img {
+                margin-top: 30px;
+                height: 350px;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-info, .contact-form-wrapper {
+                animation: none; /* Disable complex animations on smaller screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8em; }
+            h2 { font-size: 2em; }
+            h3 { font-size: 1.6em; }
+
+            .navbar {
+                padding: 0 15px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background-color: var(--background-light);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+                transition: all 0.3s ease-in-out;
+                z-index: 999;
+                padding-bottom: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+                padding: 15px 20px;
+                border-bottom: 1px solid #eee;
+                text-align: center;
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                color: var(--text-color);
+                width: 100%;
+                display: block;
+            }
+            .nav-links a::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.8em;
+            }
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            .cta-section h2 {
+                font-size: 2.2em;
+            }
+            .cta-section p {
+                font-size: 1em;
+            }
+            .btn {
+                padding: 12px 25px;
+            }
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .footer-links {
+                flex-direction: column;
+            }
+            .footer-links li {
+                margin: 5px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2.2em; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.4em; }
+
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Animation Delays for service cards and gallery items */
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="navbar">
+            <a href="#" class="logo">The Flower Boutique</a>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="btn btn-outline">Order Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1>The Flower Boutique</h1>
+                <p>Where Petals Meet Perfection. Exquisite floral arrangements crafted with passion and artistry.</p>
+                <a href="#services" class="btn">Discover Our Blooms</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section section-padding">
+            <div class="container">
+                <h2 class="text-center">A Story of Blooms & Beauty</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h3>Crafting Unforgettable Floral Experiences Since 2010.</h3>
+                        <p>At The Flower Boutique, we believe that every bloom tells a story. Since 2010, we've dedicated ourselves to the art of floristry, transforming nature's beauty into breathtaking arrangements that celebrate life's most precious moments.</p>
+                        <p>What makes us special is our unwavering commitment to personalized service and exquisite design. We hand-select the freshest, most vibrant flowers, working closely with each client to bring their unique vision to life. From elegant weddings to heartfelt daily bouquets, our creations are more than just flowers – they are expressions of joy, love, and thoughtfulness.</p>
+                        <p>Our ideal customer appreciates craftsmanship, seeks bespoke beauty, and understands the power of a perfectly arranged bouquet. Join us in celebrating the timeless elegance of flowers.</p>
+                        <a href="#contact" class="btn btn-outline">Connect With Us</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1520857973792-66b9319ac8f2?w=800&q=80" alt="Florist arranging flowers in a beautiful setting">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services-section section-padding">
+            <div class="container">
+                <h2 class="text-center">Our Artisanal Floral Services</h2>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h3>Custom Floral Arrangements</h3>
+                        <p>Bespoke designs tailored to your specific preferences, occasion, and recipient.</p>
+                        <ul>
+                            <li>Personalized consultations</li>
+                            <li>Unique flower selections</li>
+                            <li>Designed for any event</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h3>Wedding Flowers</h3>
+                        <p>From intimate ceremonies to grand celebrations, we create unforgettable wedding florals.</p>
+                        <ul>
+                            <li>Bridal bouquets & boutonnieres</li>
+                            <li>Ceremony & reception decor</li>
+                            <li>Personalized wedding themes</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h3>Event Decor</h3>
+                        <p>Elevate any gathering with our stunning floral installations and elegant decor.</p>
+                        <ul>
+                            <li>Corporate events</li>
+                            <li>Private parties</li>
+                            <li>Gala dinners</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h3>Daily Bouquets</h3>
+                        <p>Brighten someone's day or your own with our fresh, hand-tied daily bouquets.</p>
+                        <ul>
+                            <li>Fresh seasonal blooms</li>
+                            <li>Ready for pick-up or delivery</li>
+                            <li>Variety of sizes & styles</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h3>Sympathy Flowers</h3>
+                        <p>Thoughtful and comforting arrangements to express condolences and remembrance.</p>
+                        <ul>
+                            <li>Wreaths & sprays</li>
+                            <li>Casket arrangements</li>
+                            <li>Personalized memorial tributes</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h3>Floral Subscriptions</h3>
+                        <p>Enjoy regular deliveries of beautiful fresh flowers directly to your home or office.</p>
+                        <ul>
+                            <li>Weekly, bi-weekly, or monthly</li>
+                            <li>Seasonal flower selections</li>
+                            <li>Perfect for homes & businesses</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="signature-offering">
+                    <h3>Our Signature Offering: The Bloom Box</h3>
+                    <p>Experience the curated elegance of our Signature Bloom Box – a beautifully designed arrangement featuring the freshest seasonal flowers, hand-selected by our master florists. Perfect as a recurring delight or a magnificent gift. Price Range: Arrangements starting from $50.</p>
+                    <a href="#contact" class="btn">Order Your Bloom Box</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery-section section-padding">
+            <div class="container">
+                <h2 class="text-center">Our Creations: A Glimpse of Beauty</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=800&q=80" alt="Elegant Wedding Bouquet">
+                        <div class="gallery-overlay"><span>Wedding Blooms</span></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1541315758237-75905ae40049?w=800&q=80" alt="Vibrant Table Centerpiece">
+                        <div class="gallery-overlay"><span>Table Decor</span></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1562916172-2432d56a053c?w=800&q=80" alt="Modern Floral Arrangement">
+                        <div class="gallery-overlay"><span>Modern Designs</span></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1533616641577-bc6d1c470870?w=800&q=80" alt="Rustic Flower Arrangement">
+                        <div class="gallery-overlay"><span>Rustic Charm</span></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1620921098492-9694e9d3d3b7?w=800&q=80" alt="Bright Spring Bouquet">
+                        <div class="gallery-overlay"><span>Spring Fresh</span></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1589182372076-eb34d2843702?w=800&q=80" alt="Minimalist Single Bloom">
+                        <div class="gallery-overlay"><span>Elegant Simplicity</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Bring Beauty into Your Life?</h2>
+                <p>Whether for a grand celebration or a simple gesture, let The Flower Boutique craft the perfect floral masterpiece for you.</p>
+                <a href="#contact" class="btn">Order Your Custom Arrangement Today</a>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section section-padding">
+            <div class="container">
+                <h2 class="text-center">Get In Touch With Our Florists</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Connect With Us</h3>
+                        <p><strong>Address:</strong> 123 Bloom Street, Cityville, ST 12345</p>
+                        <p><strong>Phone:</strong> <a href="tel:+15551234567">(555) 123-4567</a></p>
+                        <p><strong>Email:</strong> <a href="mailto:susan@scbdata.com">susan@scbdata.com</a></p>
+                        <p><strong>Follow Us:</strong> <a href="#" target="_blank">Instagram</a>, <a href="#" target="_blank">Facebook</a></p>
+
+                        <div class="business-hours">
+                            <h4>Business Hours</h4>
+                            <ul>
+                                <li><span>Monday - Friday:</span> <span>9:00 AM - 6:00 PM</span></li>
+                                <li><span>Saturday:</span> <span>10:00 AM - 4:00 PM</span></li>
+                                <li><span>Sunday:</span> <span>Closed</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="contact-form-wrapper">
+                        <h3>Send Us a Message</h3>
+                        <form class="contact-form" action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <a href="#" class="logo">The Flower Boutique</a>
+            <ul class="footer-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="footer-contact-info">
+                <p>123 Bloom Street, Cityville, ST 12345</p>
+                <p>Phone: <a href="tel:+15551234567">(555) 123-4567</a></p>
+                <p>Email: <a href="mailto:susan@scbdata.com">susan@scbdata.com</a></p>
+            </div>
+            <p class="copyright">&copy; 2023 The Flower Boutique. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close mobile menu on link click
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+
+            // Sticky header
+            const header = document.getElementById('header');
+            const headerHeight = header.offsetHeight; // Get initial header height
+
+            function toggleStickyHeader() {
+                if (window.scrollY > headerHeight) {
+                    header.classList.add('sticky');
+                } else {
+                    header.classList.remove('sticky');
+                }
+            }
+
+            window.addEventListener('scroll', toggleStickyHeader);
+            toggleStickyHeader(); // Call on load to check initial scroll position
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        const offset = headerHeight; // Account for fixed header
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                        const offsetPosition = elementPosition - offset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
+
+            // Intersection Observer for scroll animations
+            const animateElements = document.querySelectorAll('.about-text, .about-image, .service-card, .signature-offering, .gallery-item, .contact-info, .contact-form-wrapper');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 /* Adjust threshold as needed */
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        // Determine animation based on class
+                        if (entry.target.classList.contains('about-text')) {
+                            entry.target.style.animation = 'fadeInRight 1s ease-out forwards';
+                        } else if (entry.target.classList.contains('about-image')) {
+                            entry.target.style.animation = 'fadeInLeft 1s ease-out forwards';
+                        } else if (entry.target.classList.contains('service-card')) {
+                            entry.target.style.animation = `fadeInUp 0.8s ease-out forwards ${entry.target.style.animationDelay || '0s'}`;
+                        } else if (entry.target.classList.contains('signature-offering')) {
+                            entry.target.style.animation = 'scaleIn 0.8s ease-out forwards';
+                        } else if (entry.target.classList.contains('gallery-item')) {
+                            entry.target.style.animation = `fadeIn 0.8s ease-out forwards ${entry.target.style.animationDelay || '0s'}`;
+                        } else if (entry.target.classList.contains('contact-info')) {
+                            entry.target.style.animation = 'fadeInLeft 1s ease-out forwards';
+                        } else if (entry.target.classList.contains('contact-form-wrapper')) {
+                            entry.target.style.animation = 'fadeInRight 1s ease-out forwards';
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            animateElements.forEach(el => {
+                el.style.opacity = '0'; // Ensure elements are hidden before animation
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
