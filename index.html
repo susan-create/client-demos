@@ -3,78 +3,1845 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCB Websites | Custom Websites Built in Minutes</title>
+    <meta name="description" content="Get a stunning, custom website for your small business — try it FREE first! AI-powered web design that delivers in 48 hours. Now 25% off!">
+    <meta name="keywords" content="small business website, affordable web design, custom website, AI website builder, free website demo">
+    <title>SCB Websites | Try Your Website FREE Before You Buy</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; }
-        body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: var(--dark); margin: 0; padding: 0; background: var(--light); }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        header { background: white; padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 800; font-size: 1.5rem; color: var(--primary); text-decoration: none; }
-        .hero { text-align: center; padding: 100px 20px; background: linear-gradient(to bottom, #eff6ff, #fff); }
-        h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; }
-        p.subtitle { font-size: 1.25rem; color: #64748b; max-width: 600px; margin: 0 auto 40px; }
-        .btn { display: inline-block; background: var(--primary); color: white; padding: 15px 35px; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 1.1rem; transition: transform 0.2s; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3); }
-        .btn:hover { transform: translateY(-3px); }
-        .steps { padding: 80px 0; background: white; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; }
-        .step-card { padding: 30px; border-radius: 15px; border: 1px solid #e2e8f0; }
-        .step-num { background: #eff6ff; color: var(--primary); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin: 0 auto 20px; }
-        footer { text-align: center; padding: 40px; color: #64748b; font-size: 0.9rem; }
+        :root {
+            --primary-teal: #2AB3A6;
+            --primary-teal-light: #E8F6F5;
+            --accent-coral: #E8735F;
+            --accent-coral-light: #FDF0EE;
+            --warm-yellow: #F5C654;
+            --warm-yellow-light: #FEF9E7;
+            --soft-purple: #9B8EC4;
+            --cream: #FDFCFA;
+            --soft-gray: #F5F5F3;
+            --text-primary: #2D3436;
+            --text-secondary: #636E72;
+            --white: #FFFFFF;
+            --gradient-primary: linear-gradient(135deg, #2AB3A6 0%, #3DBDB0 100%);
+            --gradient-warm: linear-gradient(135deg, #E8735F 0%, #F09286 100%);
+        }
         
-        /* UPDATE THIS LINK BELOW TO YOUR TALLY FORM URL */
-        a.cta-link { cursor: pointer; } 
-
-        @media (max-width: 768px) { h1 { font-size: 2.5rem; } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            color: var(--text-primary);
+            background-color: var(--cream);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        /* Discount Banner */
+        .discount-banner {
+            background: var(--gradient-warm);
+            color: white;
+            text-align: center;
+            padding: 0.75rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .discount-banner strong {
+            background: white;
+            color: var(--accent-coral);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            margin: 0 0.3rem;
+            font-weight: 700;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 1px 15px rgba(0, 0, 0, 0.04);
+        }
+        
+        nav.scrolled {
+            padding: 0.7rem 5%;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-teal);
+        }
+        
+        .nav-cta {
+            background: var(--gradient-primary) !important;
+            color: white !important;
+            padding: 0.7rem 1.4rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 2px 10px rgba(42, 179, 166, 0.25);
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(42, 179, 166, 0.35);
+        }
+        
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .mobile-menu span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(180deg, var(--white) 0%, var(--soft-gray) 100%);
+            display: flex;
+            align-items: center;
+            padding: 7rem 5% 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            right: 0;
+            width: 50%;
+            height: 80%;
+            background: radial-gradient(circle at center, var(--primary-teal-light) 0%, transparent 60%);
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        .hero-container {
+            max-width: 1250px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            animation: fadeUp 1s ease;
+        }
+        
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-badges {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .free-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--primary-teal-light);
+            color: var(--primary-teal);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .discount-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--accent-coral-light);
+            color: var(--accent-coral);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .hero-badges svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero h1 .highlight {
+            color: var(--primary-teal);
+        }
+        
+        .hero h1 .free-text {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero h1 .free-text::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: var(--warm-yellow);
+            z-index: -1;
+            border-radius: 2px;
+            opacity: 0.5;
+        }
+        
+        .hero-text {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.75rem;
+            max-width: 500px;
+            line-height: 1.75;
+        }
+        
+        .hero-price-note {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--soft-gray);
+        }
+        
+        .hero-price-note svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--primary-teal);
+            fill: none;
+            stroke-width: 2;
+            flex-shrink: 0;
+        }
+        
+        .hero-price-note span {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+        
+        .hero-price-note strong {
+            color: var(--primary-teal);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(42, 179, 166, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(42, 179, 166, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--text-primary);
+            border: 1.5px solid #E0E0E0;
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--primary-teal);
+            color: var(--primary-teal);
+        }
+        
+        .btn svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .hero-visual {
+            position: relative;
+            animation: fadeUp 1s ease 0.2s both;
+        }
+        
+        .hero-image-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .hero-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .hero-float-card {
+            position: absolute;
+            background: white;
+            border-radius: 12px;
+            padding: 0.9rem 1.1rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .hero-float-card.card-1 {
+            top: 12%;
+            left: -8%;
+            animation-delay: 0s;
+        }
+        
+        .hero-float-card.card-2 {
+            bottom: 18%;
+            right: -6%;
+            animation-delay: 1s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        .float-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .float-icon.teal { background: var(--primary-teal-light); }
+        .float-icon.coral { background: var(--accent-coral-light); }
+        
+        .float-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .float-icon.teal svg { stroke: var(--primary-teal); }
+        .float-icon.coral svg { stroke: var(--accent-coral); }
+        
+        .float-text {
+            font-size: 0.85rem;
+        }
+        
+        .float-text strong {
+            display: block;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .float-text span {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+        
+        /* Free Highlight Section */
+        .free-highlight {
+            padding: 3.5rem 5%;
+            background: var(--primary-teal);
+            text-align: center;
+            color: white;
+        }
+        
+        .free-highlight-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .free-highlight h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+        
+        .free-highlight p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+        }
+        
+        .free-steps {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .free-step {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        .free-step-num {
+            width: 32px;
+            height: 32px;
+            background: white;
+            color: var(--primary-teal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        /* How It Works Section */
+        .how-it-works {
+            padding: 5rem 5%;
+            background: var(--white);
+        }
+        
+        .section-container {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        
+        .section-label {
+            display: inline-block;
+            color: var(--primary-teal);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.75rem;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+        
+        .section-header p {
+            max-width: 550px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.75rem;
+        }
+        
+        .step-card {
+            text-align: center;
+            padding: 2.25rem 1.75rem;
+            border-radius: 16px;
+            background: var(--soft-gray);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .step-card:nth-child(1) { background: var(--accent-coral-light); }
+        .step-card:nth-child(2) { background: var(--primary-teal-light); }
+        .step-card:nth-child(3) { background: var(--warm-yellow-light); }
+        
+        .step-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 32px;
+            height: 32px;
+            background: var(--text-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0.75rem auto 1.25rem;
+            background: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+        }
+        
+        .step-icon svg {
+            width: 34px;
+            height: 34px;
+            fill: none;
+            stroke-width: 1.5;
+        }
+        
+        .step-card:nth-child(1) .step-icon svg { stroke: var(--accent-coral); }
+        .step-card:nth-child(2) .step-icon svg { stroke: var(--primary-teal); }
+        .step-card:nth-child(3) .step-icon svg { stroke: #D4A84B; }
+        
+        .step-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-primary);
+        }
+        
+        .step-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .step-card .free-tag {
+            display: inline-block;
+            background: var(--primary-teal);
+            color: white;
+            padding: 0.2rem 0.65rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Value Proposition */
+        .value-prop {
+            padding: 5rem 5%;
+            background: var(--soft-gray);
+        }
+        
+        .value-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .value-content h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+        }
+        
+        .value-content > p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1.75rem;
+        }
+        
+        .value-list {
+            list-style: none;
+        }
+        
+        .value-list li {
+            display: flex;
+            gap: 0.9rem;
+            margin-bottom: 1.25rem;
+            align-items: flex-start;
+        }
+        
+        .value-check {
+            width: 28px;
+            height: 28px;
+            background: var(--primary-teal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .value-check svg {
+            width: 16px;
+            height: 16px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2.5;
+        }
+        
+        .value-list li div strong {
+            display: block;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+        }
+        
+        .value-list li div span {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .value-image {
+            position: relative;
+        }
+        
+        .value-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+        }
+        
+        .value-image-graphic {
+            position: relative;
+        }
+        
+        .value-image-graphic svg {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 15px 35px rgba(42, 179, 166, 0.15));
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 5rem 5%;
+            background: var(--white);
+        }
+        
+        .pricing-note {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            padding: 1.25rem 1.5rem;
+            background: var(--primary-teal-light);
+            border-radius: 10px;
+            border: 1px dashed var(--primary-teal);
+        }
+        
+        .pricing-note p {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        
+        .pricing-note strong {
+            color: var(--primary-teal);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .pricing-card {
+            background: var(--soft-gray);
+            border-radius: 16px;
+            padding: 2.25rem;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .pricing-card.featured {
+            background: var(--primary-teal);
+            color: white;
+            transform: scale(1.03);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.03) translateY(-6px);
+        }
+        
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-coral);
+            color: white;
+            padding: 0.4rem 1.1rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.4rem;
+        }
+        
+        .pricing-card.featured h3 {
+            color: white;
+        }
+        
+        .pricing-card .price-wrapper {
+            margin: 1rem 0;
+        }
+        
+        .pricing-card .old-price {
+            text-decoration: line-through;
+            opacity: 0.5;
+            font-size: 1.3rem;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .pricing-card .price {
+            font-size: 3rem;
+            font-weight: 700;
+            font-family: 'Fraunces', serif;
+            line-height: 1.1;
+        }
+        
+        .pricing-card.featured .price {
+            color: white;
+        }
+        
+        .pricing-card .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.75;
+        }
+        
+        .pricing-card .discount-label {
+            display: inline-block;
+            background: var(--accent-coral);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+        
+        .pricing-card.featured .discount-label {
+            background: var(--warm-yellow);
+            color: var(--text-primary);
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+        
+        .pricing-card.featured .pricing-features li {
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .pricing-features li svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--primary-teal);
+            fill: none;
+            stroke-width: 2;
+            flex-shrink: 0;
+        }
+        
+        .pricing-card.featured .pricing-features li svg {
+            stroke: var(--warm-yellow);
+        }
+        
+        .pricing-card .btn {
+            width: 100%;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+        
+        .pricing-card:not(.featured) .btn {
+            background: var(--text-primary);
+            color: white;
+        }
+        
+        .pricing-card:not(.featured) .btn:hover {
+            background: var(--primary-teal);
+        }
+        
+        .pricing-card.featured .btn {
+            background: white;
+            color: var(--primary-teal);
+        }
+        
+        .pricing-card.featured .btn:hover {
+            background: var(--warm-yellow);
+            color: var(--text-primary);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 5%;
+            background: var(--text-primary);
+        }
+        
+        .testimonials .section-label {
+            color: var(--warm-yellow);
+        }
+        
+        .testimonials .section-header h2 {
+            color: white;
+        }
+        
+        .testimonials .section-header p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+        }
+        
+        .testimonial-stars {
+            color: var(--warm-yellow);
+            font-size: 1.1rem;
+            margin-bottom: 0.9rem;
+            letter-spacing: 2px;
+        }
+        
+        .testimonial-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+        }
+        
+        .testimonial-author img {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-teal);
+        }
+        
+        .testimonial-author h4 {
+            color: white;
+            font-size: 0.95rem;
+            margin-bottom: 0.15rem;
+        }
+        
+        .testimonial-author span {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 5rem 5%;
+            background: var(--soft-gray);
+        }
+        
+        .faq-grid {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 0.9rem;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: var(--primary-teal);
+        }
+        
+        .faq-question svg {
+            width: 22px;
+            height: 22px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .faq-item.active .faq-question svg {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+        
+        .faq-answer p {
+            padding: 0 1.5rem 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 5rem 5%;
+            background: var(--primary-teal);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            left: -15%;
+            width: 350px;
+            height: 350px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+        }
+        
+        .cta::after {
+            content: '';
+            position: absolute;
+            bottom: -25%;
+            right: -8%;
+            width: 250px;
+            height: 250px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 50%;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+        
+        .cta p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            max-width: 550px;
+            margin: 0 auto 1.75rem;
+        }
+        
+        .cta .btn {
+            background: white;
+            color: var(--primary-teal);
+            font-size: 1.05rem;
+            padding: 1rem 2.25rem;
+        }
+        
+        .cta .btn:hover {
+            background: var(--warm-yellow);
+            color: var(--text-primary);
+        }
+        
+        .cta-note {
+            margin-top: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.9rem;
+        }
+        
+        .cta-note svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            vertical-align: middle;
+            margin-right: 0.25rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3.5rem 5% 1.75rem;
+        }
+        
+        .footer-grid {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .footer-brand .logo {
+            margin-bottom: 0.9rem;
+            color: white;
+        }
+        
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.9rem;
+            max-width: 280px;
+        }
+        
+        .footer-col h4 {
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+            color: white;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
+        
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--primary-teal);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 0.85rem;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-content {
+                order: 1;
+            }
+            
+            .hero-visual {
+                order: 2;
+                max-width: 480px;
+                margin: 0 auto;
+            }
+            
+            .hero-badges {
+                justify-content: center;
+            }
+            
+            .hero-text {
+                margin: 0 auto 1.75rem;
+            }
+            
+            .hero-price-note {
+                margin: 0 auto 1.75rem;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-float-card {
+                display: none;
+            }
+            
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+            
+            .pricing-card.featured:hover {
+                transform: translateY(-6px);
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .free-steps {
+                flex-direction: column;
+                gap: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .discount-banner {
+                font-size: 0.85rem;
+                padding: 0.6rem;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 0.9rem;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+                max-width: 380px;
+                margin: 0 auto;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-brand p {
+                margin: 0 auto;
+            }
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.7s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
-
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">SCB Websites.</a>
-                <a href="https://tally.so/r/w7Xj0Y" class="btn" style="padding: 10px 20px; font-size: 0.9rem;">Get a Demo</a>
-            </nav>
+    <!-- Discount Banner -->
+    <div class="discount-banner">
+        🎉 Limited Time: <strong>25% OFF</strong> all packages — Try your FREE demo today!
+    </div>
+    
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            SCB Websites
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="https://tally.so/r/kdblg6" class="nav-cta">Try FREE</a></li>
+        </ul>
+        <div class="mobile-menu" id="mobileMenu">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-    </header>
-
+    </nav>
+    
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h1>We Build Your Website <br><span style="color: var(--primary);">Before You Pay.</span></h1>
-            <p class="subtitle">Get a custom, mobile-friendly website demo for your local business in 10 minutes. No credit card required. No sales calls.</p>
-            
-            <a href="https://tally.so/r/kdblg6" class="btn">Get My Free Demo &rarr;</a>
-            
-            <p style="margin-top: 20px; font-size: 0.9rem; color: #94a3b8;">Drafts are 100% free. Launch packages start at $299.</p>
-        </div>
-    </section>
-
-    <section class="steps">
-        <div class="container">
-            <div class="grid">
-                <div class="step-card">
-                    <div class="step-num">1</div>
-                    <h3>Answer 6 Questions</h3>
-                    <p>Tell us your business name and industry. It takes about 60 seconds.</p>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <div class="free-badge">
+                        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        100% FREE to Try
+                    </div>
+                    <div class="discount-badge">
+                        <svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                        25% OFF Today
+                    </div>
                 </div>
-                <div class="step-card">
-                    <div class="step-num">2</div>
-                    <h3>We Build It Instantly</h3>
-                    <p>Our intelligent system designs a custom mobile-friendly site just for you.</p>
+                <h1>Try Your <span class="free-text">FREE</span> Custom Website Demo</h1>
+                <p class="hero-text">See exactly what your new website will look like — completely free, no strings attached. Love it? It's yours. If not, you owe nothing.</p>
+                
+                <div class="hero-price-note">
+                    <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <span><strong>No credit card required.</strong> Only pay if you love it.</span>
                 </div>
-                <div class="step-card">
-                    <div class="step-num">3</div>
-                    <h3>See It Live</h3>
-                    <p>We email you a private link. If you love it, you can claim it and go live today.</p>
+                
+                <div class="hero-buttons">
+                    <a href="https://tally.so/r/kdblg6" class="btn btn-primary">
+                        Get My FREE Demo
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                    <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800&q=80" alt="Modern workspace with laptop">
+                </div>
+                <div class="hero-float-card card-1">
+                    <div class="float-icon teal">
+                        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <div class="float-text">
+                        <strong>100% FREE Demo</strong>
+                        <span>No strings attached</span>
+                    </div>
+                </div>
+                <div class="hero-float-card card-2">
+                    <div class="float-icon coral">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="float-text">
+                        <strong>Ready in 48 Hours</strong>
+                        <span>Super fast delivery</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
+    <!-- Free Highlight Section -->
+    <section class="free-highlight">
+        <div class="free-highlight-content">
+            <h2>Yes, It's Really FREE to Try!</h2>
+            <p>No tricks, no credit card, no commitment. See your website first, decide later.</p>
+            <div class="free-steps">
+                <div class="free-step">
+                    <div class="free-step-num">1</div>
+                    Fill a 5-min form
+                </div>
+                <div class="free-step">
+                    <div class="free-step-num">2</div>
+                    Get your FREE demo
+                </div>
+                <div class="free-step">
+                    <div class="free-step-num">3</div>
+                    Only pay if you love it
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label">Simple Process</span>
+                <h2>Your Website in 3 Easy Steps</h2>
+                <p>No tech skills needed. No long meetings. Just tell us about your business.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card fade-in">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </div>
+                    <h3>Fill a Quick Form</h3>
+                    <p>Tell us about your business and style preferences. Takes about 5 minutes!</p>
+                    <span class="free-tag">Free</span>
+                </div>
+                <div class="step-card fade-in">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <h3>Get Your FREE Demo</h3>
+                    <p>We create a complete, custom website for your business within 48 hours.</p>
+                    <span class="free-tag">Free</span>
+                </div>
+                <div class="step-card fade-in">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h3>Love It? Go Live!</h3>
+                    <p>Happy with your demo? We'll customize and launch it. Not happy? No charge!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Value Proposition -->
+    <section class="value-prop">
+        <div class="section-container">
+            <div class="value-grid">
+                <div class="value-content fade-in">
+                    <span class="section-label">Why SCB Websites</span>
+                    <h2>Try Before You Buy</h2>
+                    <p>Most web designers want money upfront before showing you anything. We think you should see your website first.</p>
+                    <ul class="value-list">
+                        <li>
+                            <div class="value-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                            <div>
+                                <strong>FREE Demo — Really Free</strong>
+                                <span>No payment info needed. No hidden catches.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="value-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                            <div>
+                                <strong>Affordable Pricing</strong>
+                                <span>Quality websites starting at just $149 (with 25% off).</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="value-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                            <div>
+                                <strong>Lightning Fast</strong>
+                                <span>Demo in 48 hours. Final site live within days.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="value-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                            <div>
+                                <strong>100% Custom Design</strong>
+                                <span>Built specifically for your business. No templates.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="value-image fade-in">
+                    <div class="value-image-graphic">
+                    <svg viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Background shapes -->
+                        <rect x="40" y="30" width="320" height="220" rx="16" fill="#E8F6F5"/>
+                        
+                        <!-- Browser window -->
+                        <rect x="60" y="50" width="280" height="180" rx="12" fill="white" stroke="#2AB3A6" stroke-width="2"/>
+                        
+                        <!-- Browser header -->
+                        <rect x="60" y="50" width="280" height="35" rx="12" fill="#2AB3A6"/>
+                        <rect x="60" y="73" width="280" height="12" fill="#2AB3A6"/>
+                        <circle cx="80" cy="67" r="6" fill="#E8735F"/>
+                        <circle cx="100" cy="67" r="6" fill="#F5C654"/>
+                        <circle cx="120" cy="67" r="6" fill="#2AB3A6" stroke="white" stroke-width="2"/>
+                        
+                        <!-- Content lines -->
+                        <rect x="80" y="105" width="120" height="12" rx="6" fill="#2AB3A6"/>
+                        <rect x="80" y="130" width="200" height="8" rx="4" fill="#E8F6F5"/>
+                        <rect x="80" y="148" width="180" height="8" rx="4" fill="#E8F6F5"/>
+                        <rect x="80" y="166" width="160" height="8" rx="4" fill="#E8F6F5"/>
+                        
+                        <!-- CTA Button -->
+                        <rect x="80" y="190" width="100" height="28" rx="14" fill="#E8735F"/>
+                        
+                        <!-- Decorative elements -->
+                        <circle cx="320" cy="280" r="45" fill="#E8735F" opacity="0.15"/>
+                        <circle cx="80" cy="290" r="30" fill="#2AB3A6" opacity="0.15"/>
+                        
+                        <!-- Checkmark badge -->
+                        <circle cx="330" cy="120" r="28" fill="#2AB3A6"/>
+                        <path d="M318 120L326 128L342 112" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        
+                        <!-- Small floating elements -->
+                        <rect x="300" y="180" width="50" height="50" rx="10" fill="white" stroke="#E8F6F5" stroke-width="2"/>
+                        <rect x="312" y="195" width="26" height="4" rx="2" fill="#2AB3A6"/>
+                        <rect x="312" y="205" width="20" height="4" rx="2" fill="#E8F6F5"/>
+                        <rect x="312" y="215" width="16" height="4" rx="2" fill="#E8F6F5"/>
+                    </svg>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label">Simple Pricing</span>
+                <h2>Affordable Packages — Now 25% Off!</h2>
+                <p>No hidden fees, no surprises. The demo is always FREE.</p>
+            </div>
+            
+            <div class="pricing-note">
+                <p>🎁 <strong>Your FREE demo comes first!</strong> Only pay when you're 100% happy.</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <h3>Starter</h3>
+                    <div class="price-wrapper">
+                        <span class="old-price">$199</span>
+                        <span class="discount-label">25% OFF</span>
+                        <div class="price">$149 <span>one-time</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Single-page website</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Mobile responsive</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Contact form</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Basic SEO setup</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> 1 round of revisions</li>
+                    </ul>
+                    <a href="https://tally.so/r/kdblg6" class="btn">Get FREE Demo First</a>
+                </div>
+                <div class="pricing-card featured fade-in">
+                    <div class="pricing-badge">Most Popular</div>
+                    <h3>Professional</h3>
+                    <div class="price-wrapper">
+                        <span class="old-price">$399</span>
+                        <span class="discount-label">25% OFF</span>
+                        <div class="price">$299 <span>one-time</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Multi-page website (up to 5)</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Custom design elements</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Contact form + booking</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Advanced SEO setup</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> 3 rounds of revisions</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Google Analytics setup</li>
+                    </ul>
+                    <a href="https://tally.so/r/kdblg6" class="btn">Get FREE Demo First</a>
+                </div>
+                <div class="pricing-card fade-in">
+                    <h3>Premium</h3>
+                    <div class="price-wrapper">
+                        <span class="old-price">$649</span>
+                        <span class="discount-label">25% OFF</span>
+                        <div class="price">$499 <span>one-time</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Unlimited pages</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Premium custom design</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> E-commerce ready</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Full SEO optimization</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Unlimited revisions</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Priority support</li>
+                    </ul>
+                    <a href="https://tally.so/r/kdblg6" class="btn">Get FREE Demo First</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label">Happy Customers</span>
+                <h2>What Business Owners Say</h2>
+                <p>Join small businesses that launched their online presence with us.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"I was skeptical about the free demo — thought there'd be a catch. Nope! They delivered a gorgeous site and I happily paid for it."</p>
+                    <div class="testimonial-author">
+                        <div>
+                            <h4>Maria Santos</h4>
+                            <span>Sweet Rise Bakery</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Got my demo in under 24 hours! It looked so professional I couldn't believe the price. This is how web design should work."</p>
+                    <div class="testimonial-author">
+                        <div>
+                            <h4>James Mitchell</h4>
+                            <span>Mitchell Home Services</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Affordable web design that doesn't look cheap! The free demo let me see exactly what I was getting. No surprises."</p>
+                    <div class="testimonial-author">
+                        <div>
+                            <h4>Dr. Lisa Chen</h4>
+                            <span>Wellness First Clinic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label">FAQ</span>
+                <h2>Got Questions?</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is the demo really free? What's the catch?
+                        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, 100% free with zero strings attached! No credit card needed, no obligations. We build you a complete demo website. If you love it, you can purchase. If not, you walk away owing nothing.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How long does it take to get my FREE demo?
+                        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Most demos are delivered within 24-48 hours after you submit your information. You'll receive an email with a link to preview your live demo site.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What if I want changes to my demo?
+                        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>That's what our packages are for! Once you choose a package, we'll customize colors, content, images, and layouts until your site is exactly what you want.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Why are your prices so low?
+                        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We use smart AI technology to streamline our process, so we can pass the savings to you. No bloated agency overhead, no months-long timelines. Just great websites at fair prices.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How long will the 25% discount last?
+                        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>This is a limited-time offer for new customers. Get your free demo now to lock in the discounted rate when you decide to move forward!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta" id="cta">
+        <div class="cta-content">
+            <h2>Ready to See Your FREE Website?</h2>
+            <p>Fill out our quick form and get your personalized demo within 48 hours. Zero payment, zero commitment.</p>
+            <a href="https://tally.so/r/kdblg6" class="btn">
+                Get My FREE Demo Now
+                <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <p class="cta-note">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                No credit card • No commitment • 100% FREE
+            </p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 SCB Websites. Built with Intelligent Automation.</p>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    SCB Websites
+                </a>
+                <p>Beautiful, affordable websites for small businesses. Try FREE first, pay only if you love it.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:hello@scbwebsites.com">hello@scbwebsites.com</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 SCB Websites. All rights reserved.</p>
+        </div>
     </footer>
-
+    
+    <script>
+        // Sticky Navigation
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+                
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
