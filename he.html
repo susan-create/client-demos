@@ -3,88 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="קבלו אתר תדמית מעוצב ומקצועי לעסק שלכם - נסו בחינם! בניית אתרים מבוססת AI תוך 48 שעות.">
-    <title>SCB Websites | נסו את האתר שלכם בחינם</title>
+    <title>SCB Websites | נסו בחינם</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;900&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --primary: #2AB3A6;
-            --primary-light: #E8F6F5;
-            --accent: #E8735F;
-            --accent-light: #FDF0EE;
-            --yellow: #F5C654;
-            --dark: #2D3436;
-            --text-gray: #636E72;
-            --white: #FFFFFF;
-            --bg-gray: #F9FAFB;
-            --gradient: linear-gradient(135deg, #2AB3A6 0%, #208e83 100%);
-        }
-        
+        /* RESET */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Rubik', sans-serif;
-            color: var(--dark);
-            background-color: var(--white);
-            line-height: 1.7;
+            color: #2D3436;
+            background-color: #ffffff;
+            line-height: 1.6;
             text-align: right;
-            overflow-x: hidden;
+            direction: rtl;
+            overflow-x: hidden; /* Prevents horizontal scrollbar */
         }
-        
+
         h1, h2, h3 { font-family: 'Heebo', sans-serif; font-weight: 700; line-height: 1.1; }
-        a { text-decoration: none; transition: 0.3s; }
+        a { text-decoration: none; transition: 0.2s; }
+        p { margin-bottom: 15px; }
 
-        /* Banner */
-        .banner { background: var(--accent); color: white; text-align: center; padding: 10px; font-weight: 500; font-size: 0.9rem; }
-        
-        /* Navigation */
+        /* COLORS */
+        :root {
+            --primary: #2AB3A6;
+            --accent: #E8735F;
+            --dark: #2D3436;
+            --gray: #F9FAFB;
+        }
+
+        /* NAVIGATION */
         nav {
-            padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center;
-            position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
-            z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            z-index: 100;
         }
-        .logo { font-size: 1.5rem; font-weight: 900; color: var(--dark); display: flex; align-items: center; gap: 10px; }
-        .logo span { background: var(--gradient); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: white; }
         
-        .nav-items { display: flex; gap: 30px; align-items: center; }
-        .nav-links a { color: var(--text-gray); font-weight: 500; }
-        .nav-links a:hover { color: var(--primary); }
-        .nav-cta { background: var(--gradient); color: white; padding: 10px 20px; border-radius: 8px; font-weight: 700; box-shadow: 0 4px 10px rgba(42, 179, 166, 0.2); }
-        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(42, 179, 166, 0.3); color: white; }
-
-        .lang-switch a { color: #999; font-weight: 600; margin: 0 5px; }
+        .logo { font-size: 1.4rem; font-weight: 900; color: var(--dark); display: flex; align-items: center; gap: 10px; }
+        
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        
+        .lang-switch { font-weight: bold; font-size: 0.9rem; }
+        .lang-switch a { color: #999; margin: 0 5px; }
         .lang-switch a.active { color: var(--primary); border-bottom: 2px solid var(--primary); }
+        
+        .nav-cta {
+            background: var(--primary); color: white; padding: 10px 20px; 
+            border-radius: 8px; font-weight: 700; font-size: 0.9rem;
+        }
+        .nav-cta:hover { background: #208e83; }
 
-        /* Hero */
-        .hero { padding: 6rem 5%; background: radial-gradient(circle at 10% 20%, #f8fcfb 0%, #fff 100%); overflow: hidden; }
-        .hero-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
-        
-        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem; }
-        .hero p { font-size: 1.2rem; color: var(--text-gray); margin-bottom: 2rem; max-width: 550px; }
-        
+        /* HERO SECTION */
+        .hero {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #f8fcfb 0%, #ffffff 100%);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; /* Makes it mobile responsive */
+            gap: 50px;
+        }
+
+        .hero-text { flex: 1; min-width: 300px; }
+        .hero-image { flex: 1; min-width: 300px; }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; color: var(--dark); }
+        .hero p { font-size: 1.2rem; color: #666; margin-bottom: 30px; max-width: 500px; }
+
         .btn-main {
-            background: var(--gradient); color: white; padding: 16px 32px; border-radius: 50px;
-            font-size: 1.1rem; font-weight: 700; display: inline-flex; align-items: center; gap: 10px;
-            box-shadow: 0 10px 25px rgba(42, 179, 166, 0.25);
+            background: var(--primary); color: white; padding: 15px 35px; 
+            border-radius: 50px; font-size: 1.1rem; font-weight: 700; 
+            display: inline-block; box-shadow: 0 10px 20px rgba(42, 179, 166, 0.2);
         }
-        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(42, 179, 166, 0.35); color: white; }
-        
-        /* Floating Card Animation */
-        .hero-img { position: relative; }
-        .hero-img img { width: 100%; border-radius: 20px; box-shadow: 0 30px 60px -10px rgba(0,0,0,0.15); border: 8px solid white; }
-        .float-card {
-            position: absolute; background: white; padding: 15px 20px; border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 15px;
-            animation: float 4s ease-in-out infinite; z-index: 2; top: 40px; right: -30px;
-        }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .btn-main:hover { transform: translateY(-3px); }
 
-        /* Steps */
-        .steps { padding: 6rem 5%; background: var(--white); text-align: center; }
-        .steps h2 { font-size: 2.5rem; margin-bottom: 3rem; }
-        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto; }
-        .step-
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            border: 5px solid white;
+        }
+
+        /* STEPS SECTION */
+        .steps { padding: 80px 5%; text-align: center; background: white; }
+        .steps-container {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;
+        }
+        .step-card {
+            flex: 1; min-width: 280px; max-width: 350px;
+            background: var(--gray); padding: 30px; border-radius: 20px;
+        }
+        .step-num {
+            background: #E8F6F5; color: var(--primary); width: 50px; height: 50px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.2rem; margin: 0 auto 20px;
+        }
+
+        /* PRICING SECTION */
+        .pricing { padding: 80px 5%; background: var(--gray); }
+        .pricing-container {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;
+        }
+        .price-card {
+            flex: 1; min-width: 300px; max-width: 380px;
+            background: white; padding: 40px; border-radius: 20px; text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee;
+            position: relative;
+        }
+        
+        .price-card.featured {
+            border: 2px solid var(--primary); transform: scale(1.05); z-index: 2;
+        }
+        
+        .price-tag { font-size: 3.5rem; font-weight: 800; color: var(--dark); margin: 20px 0; font-family: 'Heebo'; }
+        .price-tag span { font-size: 1rem; font-weight: 400; color: #999; display: block; }
+        
+        .features-list { list-style: none; text-align: right; margin: 30px 0; }
+        .features-list li { margin-bottom: 10px; font-size: 0.95rem; color: #555; }
+        
+        .btn-buy {
+            display: block; width: 100%; padding: 15px; border-radius: 10px;
+            background: white; color: var(--dark); border: 2px solid #eee; font-weight: 700;
+        }
+        .price-card.featured .btn-buy { background: var(--primary); color: white; border: none; }
+
+        /* FOOTER */
+        footer { background: #1a1a1a; color: white; padding: 50px 5%; text-align: center; margin-top: 50px; }
+        footer a { color: #ccc; }
+
+        /* MOBILE FIXES */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .price-card.featured { transform: scale(1); }
+            .nav-right { gap: 10px; }
+            .lang-switch { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">SCB Websites</div>
+        <div class="nav-right">
+            <div class="lang-switch">
+                <a href="index.html">English</a> | <a href="he.html" class="active">עברית</a>
+            </div>
+            <a href="https://tally.so/r/kdblg6" class="nav-cta">בנו דמו חינם</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-text">
+            <div style="display:inline-block; background:#E8F6F5; color:#2AB3A6; padding:5px 12px; border-radius:15px; font-weight:700; font-size:0.9rem; margin-bottom:15px;">⚡ טכנולוגיה חדשה בישראל</div>
+            <h1>אל תשלמו על אתר<br><span style="color:var(--primary);">לפני שאתם רואים אותו.</span></h1>
+            <p>קבלו סקיצה מלאה ומעוצבת לעסק שלכם, בחינם וללא התחייבות. אהבתם? תתחדשו. לא אהבתם? לא שילמתם שקל.</p>
+            <a href="https://tally.so/r/kdblg6" class="btn-main">אני רוצה לראות את האתר שלי ←</a>
+            <div style="margin-top: 20px; font-size: 0.9rem; color: #888;">🔒 ללא פרטי אשראי | מוכן תוך 48 שעות</div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Website Builder">
+        </div>
+    </section>
+
+    <section class="steps" id="how-it-works">
+        <h2>איך זה עובד?</h2>
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-num">1</div>
+                <h3>שאלון קצר</h3>
+                <p>עונים על 5 שאלות לגבי העסק והסגנון שאתם אוהבים.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">2</div>
+                <h3>בנייה ב-AI</h3>
+                <p>המערכת בונה עבורכם סקיצה מלאה ומעוצבת תוך 48 שעות.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">3</div>
+                <h3>החלטה</h3>
+                <p>מקבלים קישור לאתר. אוהבים? רוכשים ומשיקים. לא? נפרדים כידידים.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <h2 style="text-align:center; margin-bottom: 40px;">חבילות ומחירים</h2>
+        <div class="pricing-container">
+            <div class="price-card">
+                <h3>בסיס</h3>
+                <div class="price-tag">$149 <span>חד פעמי</span></div>
+                <ul class="features-list">
+                    <li>✅ אתר דף נחיתה (One-Pager)</li>
+                    <li>✅ מותאם לנייד</li>
+                    <li>✅ טופס יצירת קשר</li>
+                </ul>
+                <a href="https://buy.stripe.com/test_9B6dRaaNXciA0hl8d6aMU00" class="btn-buy">רכישה</a>
+            </div>
+            <div class="price-card featured">
+                <div style="color:var(--primary); font-weight:bold; margin-bottom:10px;">הכי פופולרי</div>
+                <h3>מקצועי</h3>
+                <div class="price-tag">$299 <span>חד פעמי</span></div>
+                <ul class="features-list">
+                    <li>✅ אתר מלא (עד 5 עמודים)</li>
+                    <li>✅ עיצוב פרימיום אישי</li>
+                    <li>✅ חיבור לדומיין פרטי</li>
+                    <li>✅ קידום בגוגל (SEO)</li>
+                </ul>
+                <a href="https://buy.stripe.com/test_cNi6oI4pzgyQ6FJeBuaMU01" class="btn-buy">רכישה</a>
+            </div>
+            <div class="price-card">
+                <h3>עסקים</h3>
+                <div class="price-tag">$499 <span>חד פעמי</span></div>
+                <ul class="features-list">
+                    <li>✅ עמודים ללא הגבלה</li>
+                    <li>✅ חנות אונליין (E-com)</li>
+                    <li>✅ תמיכה בעדיפות עליונה</li>
+                </ul>
+                <a href="https://buy.stripe.com/test_5kQ8wQ4pz4Q80hlaleaMU03" class="btn-buy">רכישה</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 SCB Websites. כל הזכויות שמורות.</p>
+        <p><a href="mailto:hello@scbwebsites.com">hello@scbwebsites.com</a></p>
+    </footer>
+
+</body>
+</html>
