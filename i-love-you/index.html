@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I love You Café - Where every cup is brewed with affection. Enjoy our specialty coffees, teas, and delicious pastries in a warm and inviting atmosphere.">
+    <meta name="keywords" content="café, coffee shop, specialty coffee, tea, pastries, breakfast, lunch, Heartfelt City, 'I love You' café">
+    <meta name="author" content="I love You Café">
+    <title>I love You Café - Brewed with Affection</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #6F4E37; /* Coffee Brown */
+            --secondary-color: #A0522D; /* Sienna */
+            --accent-color: #E67A00; /* Rich Orange for CTA */
+            --light-bg: #FDF7EC; /* Off-white/Cream */
+            --text-color: #333333;
+            --heading-font: 'Playfair Display', serif;
+            --body-font: 'Inter', sans-serif;
+            --sticky-bar-bg: #1e293b;
+            --sticky-bar-text: white;
+            --sticky-bar-button-bg: #2AB3A6;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--body-font);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            color: var(--primary-color);
+            margin-bottom: 0.8em;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3em; }
+        h2 { font-size: 2.5em; }
+        h3 { font-size: 1.8em; }
+
+        p {
+            margin-bottom: 1em;
+            font-size: 1.1em;
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background-color: var(--light-bg);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: background-color 0.3s ease;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -1px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 1.1em;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            padding: 5px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        .hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1509042239860-f550ce710fc9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 150px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+        }
+
+        #hero .hero-content {
+            max-width: 800px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        #hero h1 {
+            font-size: 4.5em;
+            margin-bottom: 0.3em;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        #hero p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+        }
+
+        /* About Section */
+        #about .container {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        #about .about-image, #about .about-content {
+            flex: 1;
+        }
+
+        #about .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease;
+        }
+
+        #about .about-image img:hover {
+            transform: scale(1.02);
+        }
+
+        #about h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Menu Section */
+        #menu {
+            background-color: #F8F0E3; /* Lighter cream for menu */
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        #menu h2 {
+            margin-bottom: 50px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .menu-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .menu-item-content {
+            padding: 25px;
+        }
+
+        .menu-item h3 {
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .menu-item p {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .menu-item .price {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        /* Specials Section */
+        #specials {
+            background-color: var(--light-bg);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        #specials h2 {
+            margin-bottom: 50px;
+        }
+
+        .special-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .special-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .special-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .special-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .special-card p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .special-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #F8F0E3;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        #contact h2 {
+            margin-bottom: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .contact-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .contact-item p {
+            margin: 5px 0;
+            font-size: 1em;
+        }
+
+        .map-container {
+            margin-top: 50px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .footer p {
+            margin: 0;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .footer .logo {
+            color: white;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .footer a {
+            color: white;
+        }
+
+        .footer a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Sticky Buy Bar */
+        #sticky-buy-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--sticky-bar-bg);
+            color: var(--sticky-bar-text);
+            padding: 15px;
+            text-align: center;
+            z-index: 9999;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+        }
+
+        #sticky-buy-bar p {
+            margin: 0;
+            font-size: 1em;
+            color: var(--sticky-bar-text);
+            padding: 5px 0;
+        }
+
+        #sticky-buy-bar .claim-btn {
+            background: var(--sticky-bar-button-bg);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 15px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 0.9em;
+        }
+
+        #sticky-buy-bar .claim-btn:hover {
+            background-color: #249A8F; /* Darker shade of teal */
+            transform: translateY(-1px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .main-nav ul {
+                gap: 20px;
+            }
+            h1 { font-size: 3.5em; }
+            h2 { font-size: 2em; }
+            h3 { font-size: 1.6em; }
+            p { font-size: 1em; }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .main-nav {
+                position: absolute;
+                top: 70px; /* Adjust based on header height */
+                left: 0;
+                width: 100%;
+                background-color: var(--light-bg);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                display: none; /* Hidden by default */
+                flex-direction: column;
+                padding: 20px 0;
+                border-top: 1px solid rgba(0,0,0,0.05);
+                opacity: 0;
+                transform: translateY(-10px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+
+            .main-nav.active {
+                display: flex;
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .main-nav a {
+                padding: 10px 0;
+                font-size: 1.2em;
+            }
+
+            #hero {
+                padding: 100px 20px;
+                min-height: 60vh;
+            }
+
+            #hero h1 {
+                font-size: 3em;
+            }
+            #hero p {
+                font-size: 1.2em;
+            }
+
+            #about .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            #about .about-image {
+                order: 2;
+            }
+            #about .about-content {
+                order: 1;
+            }
+            #about .about-image img {
+                margin-top: 30px;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .menu-grid, .special-grid, .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-item {
+                min-width: unset;
+                max-width: unset;
+                width: 100%;
+            }
+
+            #sticky-buy-bar {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            #sticky-buy-bar .claim-btn {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.4em; }
+
+            #hero {
+                padding: 80px 15px;
+            }
+            #hero h1 {
+                font-size: 2.5em;
+            }
+            #hero p {
+                font-size: 1em;
+            }
+
+            .logo {
+                font-size: 1.8em;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+
+            .menu-item-content {
+                padding: 20px;
+            }
+
+            .menu-item h3 {
+                font-size: 1.3em;
+            }
+
+            .menu-item .price {
+                font-size: 1.1em;
+            }
+
+            .special-card {
+                padding: 20px;
+            }
+
+            .contact-item {
+                padding: 20px;
+            }
+
+            #sticky-buy-bar p, #sticky-buy-bar .claim-btn {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo">I love You Café</div>
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#specials">Specials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>I love You Café</h1>
+            <p>Where every cup is brewed with affection and every moment is cherished.</p>
+            <a href="#menu" class="btn">View Our Menu</a>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="about-content">
+                <h2>Our Story, Brewed with Love</h2>
+                <p>Welcome to I love You Café, a haven where passion for coffee meets the warmth of human connection. Established with a simple desire to create a cozy escape, we believe that the best moments in life are shared over a perfect cup.</p>
+                <p>Every bean is carefully selected, every pastry baked with care, and every smile is genuine. We're more than just a café; we're a community, a place to unwind, work, or simply enjoy the company of those you love. Come, experience the difference affection makes.</p>
+                <a href="#contact" class="btn">Visit Us Today</a>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1541167760496-10b6510842a1?q=80&w=1934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cozy cafe interior with warm lighting">
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="section-padding">
+        <div class="container text-center">
+            <h2>Our Beloved Menu</h2>
+            <p>Crafted with the finest ingredients and a touch of heartfelt dedication.</p>
+
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Espresso coffee">
+                    <div class="menu-item-content">
+                        <h3>Espresso Classic</h3>
+                        <p>A rich, concentrated coffee that truly awakens the senses. Perfect for purists.</p>
+                        <span class="price">$3.50</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1514066558159-a21535ea246f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Love Potion Latte">
+                    <div class="menu-item-content">
+                        <h3>Love Potion Latte</h3>
+                        <p>Our signature offering! A smooth latte infused with hints of rose and vanilla. Irresistibly charming.</p>
+                        <span class="price">$6.00</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1563227814-1e08c8a8e323?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Assorted Fresh Pastries">
+                    <div class="menu-item-content">
+                        <h3>Freshly Baked Croissant</h3>
+                        <p>Flaky, buttery, and golden-brown. The perfect companion to any coffee or tea.</p>
+                        <span class="price">$4.25</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1579979727027-14787a718d09?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Avocado Toast">
+                    <div class="menu-item-content">
+                        <h3>Avocado Toast Deluxe</h3>
+                        <p>Toasted sourdough, fresh avocado, chili flakes, and a sprinkle of sea salt. A healthy delight.</p>
+                        <span class="price">$9.50</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1506318138769-ce4c51475c74?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Herbal Tea Selection">
+                    <div class="menu-item-content">
+                        <h3>Artisan Herbal Tea</h3>
+                        <p>A soothing selection of organic herbal teas, perfect for a moment of tranquility.</p>
+                        <span class="price">$4.75</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1587000808542-a7d03a55e2f7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Assorted cakes and sweets">
+                    <div class="menu-item-content">
+                        <h3>Daily Sweet Treat</h3>
+                        <p>Ask us about our rotating selection of delightful cakes, cookies, and desserts!</p>
+                        <span class="price">Varies</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="specials" class="section-padding">
+        <div class="container text-center">
+            <h2>Today's Special Delights</h2>
+            <p>Discover something new and exciting from our kitchen and bar, crafted just for you.</p>
+            <div class="special-grid">
+                <div class="special-card">
+                    <img src="https://images.unsplash.com/photo-1542845235-96144e85741f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Seasonal Berry Tart">
+                    <h3>Seasonal Berry Tart</h3>
+                    <p>A delicate tart filled with fresh, in-season berries and a light cream filling. A perfect summer treat!</p>
+                    <span class="price">$7.00</span>
+                </div>
+                <div class="special-card">
+                    <img src="https://images.unsplash.com/photo-1549429141-8e9a25b16f1a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Spiced Chai Latte">
+                    <h3>Warm Spiced Chai Latte</h3>
+                    <p>Embrace the cozy with our aromatic chai latte, perfectly blended with exotic spices and frothy milk.</p>
+                    <span class="price">$5.50</span>
+                </div>
+                <div class="special-card">
+                    <img src="https://images.unsplash.com/photo-1563729784478-f7253504183d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Grilled Cheese Sandwich">
+                    <h3>Gourmet Grilled Cheese</h3>
+                    <p>Our classic grilled cheese, elevated with artisan bread and a blend of three exquisite cheeses.</p>
+                    <span class="price">$10.00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container text-center">
+            <h2>Come Visit Our Heartfelt Home</h2>
+            <p>We can't wait to welcome you to I love You Café. Find us, get in touch, or just drop by!</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Location</h3>
+                    <p>123 Affectionate Ave, Heartland City, USA 12345</p>
+                    <p><a href="https://maps.app.goo.gl/YourGoogleMapsLink" target="_blank" rel="noopener noreferrer">Get Directions</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Hours</h3>
+                    <p>Mon - Fri: 7:00 AM - 6:00 PM</p>
+                    <p>Sat - Sun: 8:00 AM - 5:00 PM</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Contact Us</h3>
+                    <p>Phone: <a href="tel:+15551234567">(555) 123-4567</a></p>
+                    <p>Email: <a href="mailto:hi@scbwebsites.com">hi@scbwebsites.com</a></p>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.2541347071987!2d-122.41941558468165!3d37.774929779758925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858087f940176b%3A0xc3f0b2a7e7d9b9c9!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1678912345678!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="logo">I love You Café</div>
+            <p>&copy; 2024 I love You Café. All rights reserved.</p>
+            <p>Made with &hearts; in Heartland City, USA</p>
+            <p>Email: <a href="mailto:hi@scbwebsites.com">hi@scbwebsites.com</a></p>
+        </div>
+    </footer>
+
+    <div id="sticky-buy-bar">
+        <p>You are viewing a temporary demo draft for I love You.</p>
+        <a href="https://scbwebsites.com/#pricing" class="claim-btn">Claim This Website & Go Live</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const mainNav = document.getElementById('mainNav');
+            const navLinks = mainNav.querySelectorAll('a');
+
+            hamburger.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+            });
+
+            // Close nav when a link is clicked (for mobile)
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                    }
+                });
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop;
+                        
+                        window.scrollTo({
+                            top: offsetTop - (targetId === '#hero' ? 0 : document.querySelector('.header').offsetHeight), // Adjust for sticky header
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
